@@ -2,11 +2,12 @@
 
 ## Overview
 
-This is Pumpfun smart contract and its integration with TOKEN2022, the latest extension of the SPL token program on Solana. TOKEN2022 introduces advanced token functionalities, enabling features such as programmatic governance, custom fee structures, and tax handling. These enhancements make it an ideal choice for projects requiring more flexible token mechanics and decentralized finance operations.
+The Pump.fun Smart Contract integrates with TOKEN2022, the latest upgrade to the SPL token program on Solana. TOKEN2022 adds new features like programmatic governance, custom fees, and tax handling, making it ideal for projects that need flexible token mechanics and DeFi capabilities.
+
 
 ## Why TOKEN2022?
 
-TOKEN2022 builds upon the original SPL token standard by offering additional functionality that expands the use cases for tokenized assets. Some of the key benefits include:
+TOKEN2022 improves on the original SPL token standard, adding more functionality and flexibility for tokenized assets. Key benefits include:
 
 - **Enhanced Tokenomics** – Support for built-in tax mechanisms, royalties, and custom transaction fees.
 - **Improved Governance** – On-chain governance capabilities allow seamless protocol upgrades and community-driven decision-making.
