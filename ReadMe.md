@@ -1,68 +1,123 @@
-# TOKEN2022 - Pumpfun Smart Contract Overview
+# Pumpfun Smart Contract - TOKEN2022 Integration
 
-This document outlines the intricacies of the Pumpfun smart contract that utilizes the new SPL token standard, TOKEN2022. This advanced token protocol extends the functionalities of conventional SPL tokens, providing developers with more versatile options for implementing tokenomics in decentralized applications.
+## Overview
 
-## Why Choose TOKEN2022
+This is Pumpfun smart contract and its integration with TOKEN2022, the latest extension of the SPL token program on Solana. TOKEN2022 introduces advanced token functionalities, enabling features such as programmatic governance, custom fee structures, and tax handling. These enhancements make it an ideal choice for projects requiring more flexible token mechanics and decentralized finance operations.
 
-TOKEN2022 represents a significant evolution of the SPL token program, offering various additional functionalities beyond what traditional SPL tokens can provide. These enhancements may include features such as tax handling, programmatic governance, or custom fee structures, which can facilitate more sophisticated financial operations within decentralized ecosystems.
+## Why TOKEN2022?
 
+TOKEN2022 builds upon the original SPL token standard by offering additional functionality that expands the use cases for tokenized assets. Some of the key benefits include:
+
+- **Enhanced Tokenomics** – Support for built-in tax mechanisms, royalties, and custom transaction fees.
+- **Improved Governance** – On-chain governance capabilities allow seamless protocol upgrades and community-driven decision-making.
+- **Expanded Flexibility** – Developers can create tokens with advanced behavior, optimizing interactions within decentralized applications.
 
 ## Development Environment
 
 ### Devnet Program Addresses
+The following program addresses correspond to the Pumpfun smart contract’s integration with Raydium’s automated market maker (AMM) protocols.
 
-**Pumpfun + Raydium CLMM**
+#### Pumpfun + Raydium CLMM
 ```
 Fu6WXgEQeVBrsvHbwh8vStwLxjA12E9KYjPzXnJ1sQC7
 ```
 
-**Pumpfun + Raydium CPMM**
+#### Pumpfun + Raydium CPMM
 ```
 GY4gideNhYWJLkgxDW7q9hS6U2SrKb9AmSUbJPsWhEKB
 ```
 
-## Operational Procedures
+## Version Features
 
-### 1. Creating a Token Pool in Pumpfun
+### Version 2.0.0
 
-A pool can be initialized in Pumpfun by minting new TOKEN2022 tokens. This process is critical for creating a liquidity pool that can facilitate token swapping.
+**Global Configuration**
+- Set global settings from backend
+- Set fee account and swap protocol fee point
+- Configure bonding curve upper limitation
+- Configure virtual SOL & token reserve settings
+- Set tax fee and max tax from backend
 
-- **Pool Creation Transaction:**
+**Create Pool**
+- Launch Token2022 on smart contract
+- Create pool & launch token fee
+- Disable mint & freeze authority on contract
+
+**Liquidity Management**
+- Add liquidity with virtual reserve
+- Buy/Sell using linear bonding curve
+- Buy/Sell protocol fee implementation
+- Remove liquidity to temporary operational wallet
+
+**Migration to Raydium CLMM**
+- Proxy initialize
+- Proxy open position
+
+### Version 2.1.0
+
+**Global Configuration**
+- Set global settings from backend
+- Set fee account and swap protocol fee point
+- Configure bonding curve upper limitation
+- Configure virtual SOL & token reserve settings
+- Set tax fee and max tax from backend
+
+**Create Pool**
+- Launch Token2022 on smart contract
+- Create pool & launch token fee
+- Disable mint & freeze authority on contract
+
+**Liquidity Management**
+- Add liquidity with virtual reserve
+- Buy/Sell using linear bonding curve
+- Buy/Sell protocol fee implementation
+- Remove liquidity to temporary operational wallet
+
+**Migration to Raydium CPMM**
+- Proxy initialize
+
+## Operational Guide
+
+### 1. Initializing a Token Pool
+
+Creating a liquidity pool on Pumpfun involves minting TOKEN2022 tokens and establishing a pool to facilitate token swaps.
+
+- **Pool Creation Transaction:**  
   [View Transaction](https://solana.fm/tx/5QYCTaGHaareH5CoCMDeDCSxq785BfdMhKmbeKWizq7uAeVptkAuyY8N1QSc78N8YPKLi3fXTZxAfPMdzy76jT25?cluster=devnet-solana)
 
-### 2. Purchasing TOKEN2022
+### 2. Buying TOKEN2022
 
-Users can purchase TOKEN2022 through the Pumpfun platform, which incorporates transaction fees for tax and platform swap operations.
+Users can purchase TOKEN2022 tokens via Pumpfun, where transaction fees apply for tax and platform-related charges.
 
-- **Purchase Transaction:**
+- **Purchase Transaction:**  
   [View Transaction](https://solana.fm/tx/5unyZ9MekJeE8EULD4x9JKiNNCShfMnpk5edJzLpEMB6AY9g449an1y5hWmHkkJ8hwGCfpaVnb6TWL3SeqH14EYx?cluster=devnet-solana)
 
 ### 3. Selling TOKEN2022
 
-The Pumpfun platform allows users to sell TOKEN2022. Similar to the buying process, selling involves associated transaction fees.
+TOKEN2022 tokens can be sold on Pumpfun, with the sale process incorporating associated transaction fees.
 
-- **Sale Transaction:**
+- **Sale Transaction:**  
   [View Transaction](https://solana.fm/tx/2Wt2YhkU5Bj6kY9hgSLaPZ6AkjxsRZrijax59f9kRQo9fD61SkjhXPd587RTt9SDDQ4cdYNMySMBKZ5L5TJqYmyp?cluster=devnet-solana)
 
-### 4. Liquidity Migration to Raydium CLMM 
+### 4. Migrating Liquidity to Raydium CLMM
 
-After operating on Pumpfun, liquidity can be removed to migrate to the Raydium constant product market maker (CPMM) or constant product automated market maker (CLMM).
+Liquidity can be migrated from Pumpfun to Raydium’s concentrated liquidity market maker (CLMM) for improved capital efficiency.
 
-- **Liquidity Removal Transaction:**
+- **Liquidity Removal Transaction:**  
   [View Transaction](https://solana.fm/tx/uX492XUVW7yEtxyxSyhqDm7jngB7xtr23Sh29WhVfHR88JuSDwyC387XDE69k4Q8dzPbfYGDeX2hMHsRMQg2LLH?cluster=devnet-solana)
 
-### 5. Liquidity Migration to Raydium CPMM
+### 5. Migrating Liquidity to Raydium CPMM
 
-After liquidity removal from Pumpfun, it can be migrated to Raydium CPMM through a dedicated migration operation.
+For projects that prefer Raydium’s constant product market maker (CPMM), liquidity migration is possible through a dedicated transaction.
 
-- **Migration Transaction:**
+- **Migration Transaction:**  
   [View Transaction](https://solana.fm/tx/5iHdBwV2d9RsqmawRuUSRiJfb5k22ooZTpCJhigBiXpYrbep7pK4rYKyq2MQgtiSYYTzsDB1wKtrmtx45K93D7p5?cluster=devnet-solana)
 
 ## Conclusion
 
-By leveraging TOKEN2022 and the Pumpfun smart contract, developers can build robust decentralized applications with enhanced token functionalities. The outlined procedures demonstrate how to effectively engage with the Pumpfun platform while utilizing the Raydium ecosystem for improved liquidity management.
+TOKEN2022’s integration with Pumpfun introduces new possibilities for decentralized applications on Solana, enabling improved tokenomics and governance structures. By leveraging Pumpfun’s liquidity management and Raydium’s AMM protocols, developers can create more efficient and versatile financial instruments.
 
-## Troubleshooting
+For further inquiries, feel free to open an issue or reach out via Telegram.
 
-It is not representing the basic code so if you have any issue during the run of this repo, feel free to open issues.
-Or contact here: [telegram](https://t.me/jwest951227)
+- **Telegram Support:** [Sabonis](https://t.me/dogewhiz)
+
